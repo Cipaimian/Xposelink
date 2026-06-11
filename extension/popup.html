@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Xposelink Security</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">
+      <img src="icons/logo48.png" class="brand-icon" />
+      <span class="brand-text"><span class="brand-x">X</span><span class="brand-pose">pose</span><span class="brand-link">link</span></span>
+    </div>
+    <span id="tier-badge" style="display:none;font-size:10px;font-weight:600;padding:3px 9px;border-radius:10px;text-transform:uppercase;letter-spacing:0.6px"></span>
+  </div>
+
+  <!-- ── Last unshorten result ───────────────────────────────────────────── -->
+  <div id="unshorten-banner" style="display:none" class="section unshorten-banner"></div>
+
+  <!-- ── Last shorten result ─────────────────────────────────────────────── -->
+  <div id="shorten-banner" style="display:none" class="section unshorten-banner"></div>
+
+  <!-- ── Scanner ──────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="input-row">
+      <input type="text" id="url-input" placeholder="Paste any URL to scan…" autocomplete="off" />
+      <button class="btn-primary" id="scan-btn">Scan</button>
+    </div>
+    <div id="result-area"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Settings ─────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Settings</div>
+
+    <label class="toggle-row">
+      <span class="toggle-label">Enable Xposelink</span>
+      <div class="toggle-wrap">
+        <input type="checkbox" id="toggle-enabled" />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </div>
+    </label>
+
+    <label class="toggle-row">
+      <span class="toggle-label">Intercept single clicks</span>
+      <div class="toggle-wrap">
+        <input type="checkbox" id="toggle-intercept" />
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+      </div>
+    </label>
+
+    <div class="field">
+      <div class="field-label">Allowlist <span class="field-hint">(comma-separated domains to skip)</span></div>
+      <input type="text" id="input-allowlist" placeholder="e.g. google.com, github.com" />
+    </div>
+
+    <div class="field">
+      <div class="field-label">VirusTotal API Key <span class="field-hint">(optional, enables direct VT scans on link hover)</span></div>
+      <input type="password" id="input-vt-key" placeholder="Paste your VirusTotal API key…" autocomplete="off" />
+    </div>
+
+    <button class="btn-save" id="save-settings">Save Settings</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ── Account ─────────────────────────────────────────────────────────── -->
+  <div class="section">
+    <div class="section-title">Account</div>
+    <div id="auth-status" style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5">Checking…</div>
+    <button class="btn-save" id="refresh-auth" style="margin-top:8px">Refresh session</button>
+  </div>
+
+  <div class="footer">
+    <span>Xposelink Security v1.0</span>
+    <a id="dashboard-link" href="#" target="_blank">Dashboard ↗</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

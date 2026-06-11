@@ -1,0 +1,51 @@
+# Xposelink — Caddy reverse proxy config
+# Caddy automatically obtains and renews Let's Encrypt certs on first request.
+
+# Backend API
+http://api.xposelink.site {
+	reverse_proxy backend:3000
+
+	# Tighten security headers (Caddy doesn't set these by default)
+	header {
+
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		# Permissions-Policy: disable powerful features the API doesn't need
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	encode gzip zstd
+}
+
+# Frontend SPA + short-link redirects
+http://xposelink.site, http://www.xposelink.site {
+	header {
+
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+	}
+
+	encode gzip zstd
+
+	# API calls from the frontend go to the backend
+	handle /api/* {
+		reverse_proxy backend:3000
+	}
+
+	# Short-link redirects: single path segment (no slash inside) → backend
+	@shortcode {
+		path_regexp ^/[^/]+$
+		not path /
+		not path /login /register /forgot-password /reset-password /verify-email /dashboard
+		not path_regexp \.(png|jpg|jpeg|gif|svg|css|js|woff|woff2|ttf|eot)$
+	}
+	handle @shortcode {
+		reverse_proxy backend:3000
+	}
+
+	# Everything else → React SPA
+	handle {
+		reverse_proxy frontend:80
+	}
+}

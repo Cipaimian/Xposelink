@@ -1,0 +1,3 @@
+/* LinkGuard — Content styles
+   The popup overlay uses Shadow DOM, so all popup styles live in content.js.
+   This file is intentionally minimal. */

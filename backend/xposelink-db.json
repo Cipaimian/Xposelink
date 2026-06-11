@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@xposelink.test",
+      "password_hash": "2aba5e555b7f5fce07abe9b705ef4ce6:fb4b1e318d834f93820bf1317237f90767ea5a36f3aa398a299b83547cc1573a0e81bb495c184a561a59e81d4dd91ad753440b38a85287adfe7f1f4915aae95a",
+      "role": "admin",
+      "subscription_status": "subscribed",
+      "usage_count": 0,
+      "created_at": "2026-04-03T04:00:00.000Z"
+    }
+  ],
+  "links": [],
+  "transactions": [],
+  "tickets": [],
+  "lastId": 1,
+  "lastLinkId": 0,
+  "lastTransactionId": 0,
+  "lastTicketId": 0
+}
