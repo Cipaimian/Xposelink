@@ -1,8 +1,8 @@
-<img src="frontend/public/logo.png" alt="Xposelink logo" width="130" align="left" />
+<img src="frontend/public/logo.png" alt="Xposelink logo" width="110" align="left" />
 
-# Xposelink
+<img src="docs/xposelink-wordmark.svg" alt="Xposelink" width="300" />
 
-Shorten &amp; Reveal · Trust Every Link
+**Shorten &amp; Reveal · Trust Every Link**
 
 <br clear="left" />
 
