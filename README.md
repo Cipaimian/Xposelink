@@ -1,14 +1,11 @@
-<table align="center" border="0">
+<table border="0">
   <tr>
-    <td align="center" width="140">
-      <img src="frontend/public/logo.png" alt="Xposelink logo" width="100" />
+    <td valign="middle">
+      <img src="frontend/public/logo.png" alt="Xposelink" width="84" />
     </td>
-    <td align="center">
+    <td valign="middle">
       <h1>Xposelink</h1>
-      <p><em>Shorten &amp; Reveal — Trust Every Link</em></p>
-    </td>
-    <td align="center" width="140">
-      <img src="frontend/public/logo.png" alt="Xposelink logo" width="100" />
+      <sub>Shorten &amp; Reveal · Trust Every Link</sub>
     </td>
   </tr>
 </table>
