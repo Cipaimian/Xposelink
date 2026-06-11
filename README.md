@@ -1,14 +1,10 @@
-<table border="0">
-  <tr>
-    <td valign="middle">
-      <img src="frontend/public/logo.png" alt="Xposelink" width="84" />
-    </td>
-    <td valign="middle">
-      <h1>Xposelink</h1>
-      <sub>Shorten &amp; Reveal · Trust Every Link</sub>
-    </td>
-  </tr>
-</table>
+<img src="frontend/public/logo.png" alt="Xposelink logo" width="130" align="left" />
+
+# Xposelink
+
+Shorten &amp; Reveal · Trust Every Link
+
+<br clear="left" />
 
 <p align="center">
   A URL safety toolkit that shortens links, reveals where short links really go, and scans any address for malware, phishing, adult content, and gambling. It ships with a web dashboard and a Chrome extension that checks links while you browse.
