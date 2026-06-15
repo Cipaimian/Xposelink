@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* ── Custom animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 15px) scale(0.97); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes wordIn {
+  from { opacity: 0; transform: translateY(28px); filter: blur(10px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0);    }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%;   }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes rippleOut {
+  from { transform: scale(0.6); opacity: 0.45; }
+  to   { transform: scale(2.6); opacity: 0;    }
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+
+.typing-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.8em;
+  background: currentColor;
+  margin-left: 3px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: cursorBlink 0.9s step-end infinite;
+}
+
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.animate-fade-up-delay {
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.15s forwards;
+}
+
+.animate-fade-up-delay-2 {
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.3s forwards;
+}
+
+.blob {
+  animation: floatBlob 8s ease-in-out infinite;
+}
+
+/* Gradient text — animated shifting gradient */
+.gradient-text {
+  background: linear-gradient(135deg, #4285f4 0%, #7c3aed 50%, #06b6d4 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Staggered word entrance */
+.word-in {
+  display: inline-block;
+  opacity: 0;
+  animation: wordIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Button ripple overlay */
+.animate-ripple {
+  animation: rippleOut 0.6s ease forwards;
+}
+
+/* Shimmer button effect — blue-violet (default) */
+.btn-shimmer {
+  background: linear-gradient(90deg, #4285f4 0%, #7c3aed 50%, #4285f4 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-shimmer:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(66, 133, 244, 0.35);
+}
+.btn-shimmer:active { transform: translateY(0); }
+
+/* Shimmer — violet/purple (Pro) */
+.btn-shimmer-pro {
+  background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 50%, #7c3aed 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-shimmer-pro:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.35);
+}
+.btn-shimmer-pro:active { transform: translateY(0); }
+
+/* Shimmer — teal/green (Team) */
+.btn-shimmer-team {
+  background: linear-gradient(90deg, #0d9488 0%, #34d399 50%, #0d9488 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-shimmer-team:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+.btn-shimmer-team:active { transform: translateY(0); }
+
+/* Shimmer — amber/yellow (Links) */
+.btn-shimmer-amber {
+  background: linear-gradient(90deg, #d97706 0%, #fbbf24 50%, #d97706 100%);
+  background-size: 200% auto;
+  transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-shimmer-amber:hover {
+  background-position: right center;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+}
+.btn-shimmer-amber:active { transform: translateY(0); }
+
+/* Nav underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Tool card hover */
+.tool-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.tool-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(66, 133, 244, 0.12);
+}
+
+/* Input focus */
+.xp-input {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.xp-input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.12);
+}
+
+/* Dropdown fade-slide */
+.dropdown {
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.dropdown-trigger:hover .dropdown,
+.dropdown-trigger:focus-within .dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
